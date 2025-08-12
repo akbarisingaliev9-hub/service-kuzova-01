@@ -86,7 +86,7 @@ h1{
     align-items: center;
     width: 90%;
     z-index: 2;
-    color: #7b7b7b;
+    color: #d6d6d6;
 }
 
 /* компьютер и ноутбук*/
@@ -128,7 +128,7 @@ h1{
         padding: 4% 6%;
     }
     .cc {
-        font-size: 120%;
+        font-size: 90%;
         margin-bottom: 4%;
     }
     .ccc {
@@ -179,7 +179,7 @@ h1{
 }
 
 /* Адаптация для мобильных устройств */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .servis-list {
         flex-direction: column;
         align-items: center;
