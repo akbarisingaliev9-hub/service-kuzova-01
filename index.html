@@ -1,94 +1,666 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>.ГБЦ</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="web">
-      <div class="container">
-        <div class="header">
-          <div class="had">
-            <div class="had-top">
-              <h1 class="zag">СТО--.ГБЦ</h1>
-              <h3 class="zagg">Профессиональный ремонт ГБЦ</h3>
-            </div>
-            <div class="border">
-              <hr class="border-line" />
-            </div>
-            <div class="had-top2">
-              <div class="fon">
-                <div class="but">
-                    <a href="#uslugi" class="zag2">Услуги</a>
-                  <a href="#kontakti" class="zagg2">Контакты</a>
-                </div>
-              </div>
-            </div>
-            <div class="had-tors">
-              <div class="foto">
-                <div class="imgg">
-                  <img src="images/img1500-1000.png" alt="" width="100%" />
-                  <div class="cccs">
-                    <h1 class="ссс">
-                      Надежный ремонт-гарантия вашего спокойствия
-                    </h1>
-                    <h3 class="cc">
-                        Работаем быстро, качественно и по доступным ценам
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="torso">
-            <div class="servis">
-                <div class="h" id="uslugi">
-                    <h1>Услуги</h1>
-                </div>
-                <div class="servis-list">
-                    <div class="servis-item">
-                        <h2>Ремонт ГБЦ</h2>
-                        <p>Профессиональный ремонт головки блока цилиндров с гарантией качества.</p>
-                    </div>
-                    <div class="servis-item">
-                        <h2>Регулировка клапанов</h2>
-                        <p>Профессиональная регулировка клапанов для оптимизации работы двигателя.</p>
-                    </div>
-                    <div class="servis-item">
-                        <h2>фрезеровка</h2>
-                        <p>Профессиональная фрезеровка ГБЦ для восстановления геометрии и повышения эффективности работы двигателя.</p>
-                    </div>
-                    <div class="servis-item">
-                        <h2>Мойка</h2>
-                        <p>Профессиональная мойка ГБЦ и других компонентов двигателя для удаления загрязнений.</p>
-                    </div>
-                    <div class="servis-item">
-                        <h2>Опрессовка</h2>
-                        <p>Профессиональная опрессовка ГБЦ и других компонентов двигателя для проверки на герметичность.</p>
-                    </div>
-                    <div class="servis-item">
-                        <h2>Расточка блоков</h2>
-                        <p>Профессиональная расточка блоков цилиндров для восстановления геометрии и повышения эффективности работы двигателя.</p>
-                    </div>
-            </div>
-        </div>
-      </div>
-      <div class="down">
-        <div class="kon" id="kontakti">
-            <div class="log">
-                <h1>СТО--.ГБЦ</h1>
-            </div>
-            <div class="add">
-                <h3>Г.Астана,ул.кокше коменгерулы,66</h3>
-            </div>
-            <div class="nom">
-                <h3>+7 (777) 777 77-77</h3>
-            </div>
-        </div>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КузовМастер — кузовной ремонт и покраска автомобилей в Астане</title>
+  <meta name="description" content="Кузовной ремонт, покраска, беспокрасочное удаление вмятин, восстановление геометрии кузова, полировка и антикор. Гарантия до 3 лет. Астана." />
+  <meta name="theme-color" content="#0d1015" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff6a1a'/%3E%3Cpath d='M12 40l5-10c1-2 3-3 5-3h20c2 0 4 1 5 3l5 10v6H12z' fill='%23fff'/%3E%3Ccircle cx='21' cy='46' r='5' fill='%230d1015'/%3E%3Ccircle cx='43' cy='46' r='5' fill='%230d1015'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- ===================== ШАПКА ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="КузовМастер — на главную">
+        <span class="logo__mark">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 25l3.5-7c.7-1.4 2-2.2 3.6-2.2h13.8c1.5 0 2.9.8 3.6 2.2L34 25v5H6z" fill="currentColor"/><circle cx="12.5" cy="30" r="3.5" fill="#0d1015"/><circle cx="27.5" cy="30" r="3.5" fill="#0d1015"/><path d="M14 12l3-4M20 11V6M26 12l-3-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="logo__text">Кузов<b>Мастер</b></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="#services">Услуги</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#prices">Цены</a>
+        <a href="#works">Работы</a>
+        <a href="#about">О нас</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="tel:+77777777777" class="header__phone">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="currentColor"/></svg>
+          +7 (777) 777-77-77
+        </a>
+        <a href="#booking" class="btn btn--primary btn--sm">Записаться</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </body>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== ГЛАВНЫЙ ЭКРАН ===================== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge"><span class="badge__dot"></span>Работаем ежедневно с 9:00 до 21:00</span>
+          <h1 class="hero__title">Вернём вашему автомобилю <span class="text-gradient">заводской вид</span></h1>
+          <p class="hero__text">
+            Кузовной ремонт любой сложности, покраска в камере с компьютерным подбором цвета,
+            беспокрасочное удаление вмятин и восстановление геометрии после ДТП.
+            Гарантия на работы — до 3&nbsp;лет.
+          </p>
+          <div class="hero__buttons">
+            <a href="#calc" class="btn btn--primary">Рассчитать стоимость</a>
+            <a href="#booking" class="btn btn--ghost">Бесплатный осмотр</a>
+          </div>
+
+          <ul class="hero__stats">
+            <li><b data-count="12">0</b><span>лет на рынке</span></li>
+            <li><b data-count="4800" data-suffix="+">0</b><span>отремонтированных авто</span></li>
+            <li><b data-count="3">0</b><span>года гарантии</span></li>
+            <li><b data-count="98" data-suffix="%">0</b><span>довольных клиентов</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__card hero__card--top">
+            <span class="hero__card-icon">🎨</span>
+            <div><b>Подбор цвета</b><small>спектрофотометр, точность 99,7%</small></div>
+          </div>
+          <svg class="hero__car" viewBox="0 0 620 260">
+            <defs>
+              <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff8a3d"/>
+                <stop offset=".55" stop-color="#ff5a14"/>
+                <stop offset="1" stop-color="#a8320a"/>
+              </linearGradient>
+              <linearGradient id="carGlass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#9fd3ff" stop-opacity=".85"/>
+                <stop offset="1" stop-color="#1c2a3a" stop-opacity=".95"/>
+              </linearGradient>
+              <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5ee1ff" stop-opacity="0"/>
+                <stop offset=".5" stop-color="#5ee1ff" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#5ee1ff" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="carClip"><path d="M30 170 L40 128 Q50 112 82 107 L175 98 Q215 64 265 50 Q305 40 365 43 Q418 46 456 82 L486 102 Q548 108 572 122 Q588 133 585 158 L582 172 Q578 180 566 180 L526 180 A48 48 0 0 0 430 180 L205 180 A48 48 0 0 0 109 180 L46 180 Q30 180 30 170 Z"/></clipPath>
+            </defs>
+            <ellipse cx="310" cy="222" rx="280" ry="16" fill="#000" opacity=".45"/>
+            <path d="M30 170 L40 128 Q50 112 82 107 L175 98 Q215 64 265 50 Q305 40 365 43 Q418 46 456 82 L486 102 Q548 108 572 122 Q588 133 585 158 L582 172 Q578 180 566 180 L526 180 A48 48 0 0 0 430 180 L205 180 A48 48 0 0 0 109 180 L46 180 Q30 180 30 170 Z" fill="url(#carBody)"/>
+            <path d="M190 102 Q228 70 270 58 L305 53 L305 102 Z" fill="url(#carGlass)"/>
+            <path d="M320 52 L366 51 Q408 54 438 86 L448 102 L320 102 Z" fill="url(#carGlass)"/>
+            <path d="M85 120 L560 120" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+            <path d="M312 104 L312 176 M445 106 L452 176" stroke="#5a1a04" stroke-opacity=".55" stroke-width="2"/>
+            <rect x="268" y="128" width="26" height="5" rx="2.5" fill="#5a1a04" opacity=".6"/>
+            <rect x="400" y="128" width="26" height="5" rx="2.5" fill="#5a1a04" opacity=".6"/>
+            <path d="M560 128 Q575 130 578 142 L556 140 Z" fill="#fff2c4"/>
+            <path d="M36 136 L52 133 L50 146 L35 147 Z" fill="#ff2a2a"/>
+            <g clip-path="url(#carClip)">
+              <rect class="scan-line" x="-80" y="0" width="80" height="260" fill="url(#scan)"/>
+            </g>
+            <g class="wheel" style="transform-origin:157px 180px">
+              <circle cx="157" cy="180" r="38" fill="#111"/><circle cx="157" cy="180" r="22" fill="#3a3f47"/>
+              <path d="M157 160v40M137 180h40M143 166l28 28M171 166l-28 28" stroke="#8a919c" stroke-width="3"/>
+              <circle cx="157" cy="180" r="6" fill="#c9ced6"/>
+            </g>
+            <g class="wheel" style="transform-origin:478px 180px">
+              <circle cx="478" cy="180" r="38" fill="#111"/><circle cx="478" cy="180" r="22" fill="#3a3f47"/>
+              <path d="M478 160v40M458 180h40M464 166l28 28M492 166l-28 28" stroke="#8a919c" stroke-width="3"/>
+              <circle cx="478" cy="180" r="6" fill="#c9ced6"/>
+            </g>
+            <g class="measure">
+              <circle cx="230" cy="140" r="5" fill="#5ee1ff"/><circle cx="380" cy="80" r="5" fill="#5ee1ff"/><circle cx="520" cy="140" r="5" fill="#5ee1ff"/>
+              <path d="M230 140 L380 80 L520 140" stroke="#5ee1ff" stroke-width="1.5" stroke-dasharray="6 6" fill="none"/>
+            </g>
+          </svg>
+          <div class="hero__card hero__card--bottom">
+            <span class="hero__card-icon">📐</span>
+            <div><b>Геометрия кузова</b><small>электронный замер ±1 мм</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== БЕГУЩАЯ СТРОКА ===================== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Покраска в камере</span><span>Ремонт после ДТП</span><span>PDR — удаление вмятин</span><span>Стапельные работы</span><span>Полировка и керамика</span><span>Антикор</span><span>Ремонт бамперов</span><span>Работа со страховыми</span>
+        <span>Покраска в камере</span><span>Ремонт после ДТП</span><span>PDR — удаление вмятин</span><span>Стапельные работы</span><span>Полировка и керамика</span><span>Антикор</span><span>Ремонт бамперов</span><span>Работа со страховыми</span>
+      </div>
+    </div>
+
+    <!-- ===================== УСЛУГИ ===================== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Услуги</span>
+          <h2 class="section__title">Полный цикл кузовных работ</h2>
+          <p class="section__text">От небольшой царапины до восстановления автомобиля после серьёзного ДТП. Нажмите на карточку, чтобы узнать подробности.</p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal" data-service="body">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><path d="M8 30l4-9c1-2 3-3 5-3h14c2 0 4 1 5 3l4 9v7H8z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="15" cy="37" r="4" fill="currentColor"/><circle cx="33" cy="37" r="4" fill="currentColor"/><path d="M30 8l-6 8 4 1-3 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Кузовной ремонт</h3>
+            <p>Рихтовка, вытяжка, сварка, замена элементов кузова после ДТП.</p>
+            <div class="service__meta"><span>от 25 000 ₸</span><span>1–5 дней</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="paint">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><path d="M10 14h22v8H10z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M32 18h4v8H21v6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><rect x="18" y="32" width="6" height="10" rx="2" fill="currentColor"/><circle cx="40" cy="10" r="2" fill="currentColor"/><circle cx="43" cy="16" r="1.5" fill="currentColor"/><circle cx="38" cy="4" r="1.5" fill="currentColor"/></svg></div>
+            <h3>Покраска авто</h3>
+            <p>Покраска элемента или всего кузова в камере. Компьютерный подбор цвета.</p>
+            <div class="service__meta"><span>от 45 000 ₸</span><span>2–7 дней</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="pdr">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><path d="M6 30q18-14 36 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M24 10v12M19 17l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 38h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 5"/></svg></div>
+            <h3>Удаление вмятин без покраски</h3>
+            <p>Технология PDR: сохраняем заводское ЛКП, работа от 1 часа.</p>
+            <div class="service__meta"><span>от 8 000 ₸</span><span>от 1 часа</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="frame">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 24h36M16 14v20M32 14v20" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/><path d="M2 40h44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M10 34v6M38 34v6" stroke="currentColor" stroke-width="2.5"/></svg></div>
+            <h3>Стапельные работы</h3>
+            <p>Восстановление геометрии кузова по заводским контрольным точкам.</p>
+            <div class="service__meta"><span>от 60 000 ₸</span><span>2–4 дня</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="polish">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><circle cx="20" cy="28" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="20" cy="28" r="5" fill="currentColor"/><path d="M30 20l10-10M36 6l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+            <h3>Полировка и керамика</h3>
+            <p>Восстановительная полировка, нанесение керамики и защитной плёнки.</p>
+            <div class="service__meta"><span>от 35 000 ₸</span><span>1–3 дня</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="anticor">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Антикоррозийная обработка</h3>
+            <p>Удаление ржавчины, обработка скрытых полостей, днища и арок.</p>
+            <div class="service__meta"><span>от 40 000 ₸</span><span>1 день</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="plastic">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><path d="M4 22h40v10a4 4 0 01-4 4H8a4 4 0 01-4-4z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 29h8M28 29h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M22 10l2 6 2-6M18 14l3 3M30 14l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Ремонт бамперов и пластика</h3>
+            <p>Пайка трещин, восстановление креплений, покраска пластика.</p>
+            <div class="service__meta"><span>от 15 000 ₸</span><span>1–2 дня</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+
+          <article class="service reveal" data-service="insurance">
+            <div class="service__icon"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="38" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15 16h18M15 23h18M15 30h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="36" r="7" fill="currentColor"/><path d="M31 36l2 2 4-4" stroke="#0d1015" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            <h3>Ремонт по страховке</h3>
+            <p>КАСКО и ОГПО ВТС: поможем с документами и согласованием сметы.</p>
+            <div class="service__meta"><span>по полису</span><span>под ключ</span></div>
+            <button class="service__more">Подробнее →</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== КАЛЬКУЛЯТОР ===================== -->
+    <section class="section section--alt" id="calc">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Онлайн-калькулятор</span>
+          <h2 class="section__title">Рассчитайте стоимость ремонта за минуту</h2>
+          <p class="section__text">Отметьте повреждённые детали на схеме, выберите вид работ и тип краски. Точную цену назовём после бесплатного осмотра.</p>
+        </div>
+
+        <div class="calc reveal">
+          <div class="calc__scheme">
+            <svg class="car-top" id="carTop" viewBox="0 0 260 500" aria-label="Схема автомобиля, вид сверху">
+              <rect x="20" y="70" width="14" height="50" rx="5" class="tire"/><rect x="226" y="70" width="14" height="50" rx="5" class="tire"/>
+              <rect x="20" y="370" width="14" height="50" rx="5" class="tire"/><rect x="226" y="370" width="14" height="50" rx="5" class="tire"/>
+
+              <path class="part" data-part="bumperF" d="M60 18 Q130 0 200 18 L206 50 L54 50 Z"/>
+              <path class="part" data-part="hood" d="M58 56 L202 56 L196 160 L64 160 Z"/>
+              <path class="glass" d="M66 166 L194 166 L182 204 L78 204 Z"/>
+              <path class="part" data-part="roof" d="M80 210 L180 210 L180 310 L80 310 Z"/>
+              <path class="glass" d="M78 316 L182 316 L192 344 L68 344 Z"/>
+              <path class="part" data-part="trunk" d="M66 350 L194 350 L200 432 L60 432 Z"/>
+              <path class="part" data-part="bumperR" d="M54 438 L206 438 L200 478 Q130 494 60 478 Z"/>
+
+              <path class="part" data-part="fenderFL" d="M36 56 L52 56 L58 160 L36 160 Z"/>
+              <path class="part" data-part="doorFL" d="M36 166 L72 166 L74 256 L36 256 Z"/>
+              <path class="part" data-part="doorRL" d="M36 262 L74 262 L72 344 L36 344 Z"/>
+              <path class="part" data-part="fenderRL" d="M36 350 L60 350 L54 432 L36 432 Z"/>
+
+              <path class="part" data-part="fenderFR" d="M224 56 L208 56 L202 160 L224 160 Z"/>
+              <path class="part" data-part="doorFR" d="M224 166 L188 166 L186 256 L224 256 Z"/>
+              <path class="part" data-part="doorRR" d="M224 262 L186 262 L188 344 L224 344 Z"/>
+              <path class="part" data-part="fenderRR" d="M224 350 L200 350 L206 432 L224 432 Z"/>
+
+              <rect x="20" y="168" width="12" height="16" rx="3" class="mirror"/><rect x="228" y="168" width="12" height="16" rx="3" class="mirror"/>
+              <text x="130" y="112" class="car-label">ПЕРЕД</text>
+              <text x="130" y="396" class="car-label">ЗАД</text>
+            </svg>
+            <p class="calc__hint">Нажмите на деталь, чтобы выбрать её</p>
+          </div>
+
+          <div class="calc__form">
+            <div class="field">
+              <label class="field__label">Класс автомобиля</label>
+              <div class="chips" data-group="carClass">
+                <button type="button" class="chip is-active" data-value="1">Малый / A–B</button>
+                <button type="button" class="chip" data-value="1.15">Средний / C</button>
+                <button type="button" class="chip" data-value="1.35">Бизнес / D–E</button>
+                <button type="button" class="chip" data-value="1.5">Кроссовер / SUV</button>
+                <button type="button" class="chip" data-value="1.8">Премиум</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Вид работ</label>
+              <div class="chips" data-group="work">
+                <button type="button" class="chip" data-value="pdr">PDR без покраски</button>
+                <button type="button" class="chip is-active" data-value="paint">Только покраска</button>
+                <button type="button" class="chip" data-value="repair">Ремонт + покраска</button>
+                <button type="button" class="chip" data-value="replace">Замена + покраска</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Тип краски</label>
+              <div class="chips" data-group="paint">
+                <button type="button" class="chip is-active" data-value="1">Обычная (солид)</button>
+                <button type="button" class="chip" data-value="1.15">Металлик</button>
+                <button type="button" class="chip" data-value="1.35">Перламутр / трёхслойная</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Выбранные детали <span class="muted" id="partsCount">(0)</span></label>
+              <ul class="selected-parts" id="selectedParts"><li class="muted">Пока ничего не выбрано</li></ul>
+            </div>
+
+            <div class="calc__result">
+              <div>
+                <span class="muted">Ориентировочная стоимость</span>
+                <div class="calc__price" id="calcPrice">0 ₸</div>
+                <span class="muted" id="calcDays">Срок: —</span>
+              </div>
+              <a href="#booking" class="btn btn--primary" id="calcBook">Записаться на осмотр</a>
+            </div>
+            <p class="calc__note">* Расчёт предварительный и не является публичной офертой. Запчасти оплачиваются отдельно.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЭТАПЫ ===================== -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Как мы работаем</span>
+          <h2 class="section__title">6 шагов от заявки до выдачи</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal"><span class="step__num">01</span><h3>Заявка</h3><p>Оставляете заявку на сайте или звоните. Можно прислать фото повреждений в WhatsApp.</p></li>
+          <li class="step reveal"><span class="step__num">02</span><h3>Осмотр и дефектовка</h3><p>Бесплатно осматриваем авто, замеряем толщину ЛКП и фиксируем все повреждения.</p></li>
+          <li class="step reveal"><span class="step__num">03</span><h3>Смета и договор</h3><p>Составляем подробную смету. Цена фиксируется в договоре и не меняется.</p></li>
+          <li class="step reveal"><span class="step__num">04</span><h3>Ремонт</h3><p>Рихтовка, подготовка, покраска в камере. Фотоотчёт о каждом этапе — в мессенджер.</p></li>
+          <li class="step reveal"><span class="step__num">05</span><h3>Контроль качества</h3><p>Проверка зазоров, толщины покрытия и цвета при разном освещении.</p></li>
+          <li class="step reveal"><span class="step__num">06</span><h3>Выдача и гарантия</h3><p>Моем авто, выдаём гарантийный талон и бесплатный осмотр через 6 месяцев.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== ДО / ПОСЛЕ ===================== -->
+    <section class="section section--alt" id="works">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Наши работы</span>
+          <h2 class="section__title">До и после ремонта</h2>
+          <p class="section__text">Передвигайте ползунок, чтобы сравнить состояние автомобиля.</p>
+        </div>
+
+        <div class="works reveal">
+          <div class="works__tabs" role="tablist">
+            <button class="works__tab is-active" data-case="0">Вмятина на двери</button>
+            <button class="works__tab" data-case="1">Царапины и сколы</button>
+            <button class="works__tab" data-case="2">ДТП: передняя часть</button>
+          </div>
+
+          <div class="ba" id="ba">
+            <div class="ba__layer ba__after" id="baAfter"></div>
+            <div class="ba__layer ba__before" id="baBefore"></div>
+            <span class="ba__label ba__label--before">ДО</span>
+            <span class="ba__label ba__label--after">ПОСЛЕ</span>
+            <div class="ba__handle" id="baHandle"><span></span></div>
+            <input type="range" min="0" max="100" value="50" class="ba__range" id="baRange" aria-label="Сравнение до и после" />
+          </div>
+
+          <div class="works__info" id="worksInfo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЦЕНЫ ===================== -->
+    <section class="section" id="prices">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Прайс-лист</span>
+          <h2 class="section__title">Цены на услуги</h2>
+          <p class="section__text">Цены указаны для автомобилей малого и среднего класса. Для бизнес-класса и внедорожников применяется коэффициент.</p>
+        </div>
+
+        <div class="prices reveal">
+          <div class="prices__tabs" role="tablist">
+            <button class="prices__tab is-active" data-tab="p1">Покраска</button>
+            <button class="prices__tab" data-tab="p2">Кузовной ремонт</button>
+            <button class="prices__tab" data-tab="p3">PDR</button>
+            <button class="prices__tab" data-tab="p4">Детейлинг</button>
+          </div>
+
+          <div class="prices__panel is-active" id="p1">
+            <table class="price-table">
+              <thead><tr><th>Услуга</th><th>Срок</th><th>Цена</th></tr></thead>
+              <tbody>
+                <tr><td>Покраска бампера</td><td>1–2 дня</td><td>от 40 000 ₸</td></tr>
+                <tr><td>Покраска двери</td><td>1–2 дня</td><td>от 45 000 ₸</td></tr>
+                <tr><td>Покраска крыла</td><td>1–2 дня</td><td>от 42 000 ₸</td></tr>
+                <tr><td>Покраска капота</td><td>2 дня</td><td>от 55 000 ₸</td></tr>
+                <tr><td>Покраска крыши</td><td>2 дня</td><td>от 60 000 ₸</td></tr>
+                <tr><td>Покраска крышки багажника</td><td>2 дня</td><td>от 48 000 ₸</td></tr>
+                <tr><td>Полная покраска автомобиля</td><td>7–10 дней</td><td>от 650 000 ₸</td></tr>
+                <tr><td>Локальная покраска (до 15 см)</td><td>1 день</td><td>от 18 000 ₸</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="prices__panel" id="p2">
+            <table class="price-table">
+              <thead><tr><th>Услуга</th><th>Срок</th><th>Цена</th></tr></thead>
+              <tbody>
+                <tr><td>Рихтовка элемента (лёгкая)</td><td>1 день</td><td>от 15 000 ₸</td></tr>
+                <tr><td>Рихтовка элемента (сложная)</td><td>1–2 дня</td><td>от 35 000 ₸</td></tr>
+                <tr><td>Замена порога (с вваркой)</td><td>2–3 дня</td><td>от 70 000 ₸</td></tr>
+                <tr><td>Замена заднего крыла</td><td>3–4 дня</td><td>от 120 000 ₸</td></tr>
+                <tr><td>Восстановление геометрии на стапеле</td><td>2–4 дня</td><td>от 60 000 ₸</td></tr>
+                <tr><td>Пайка бампера</td><td>1 день</td><td>от 15 000 ₸</td></tr>
+                <tr><td>Сварочные работы (1 час)</td><td>—</td><td>от 12 000 ₸</td></tr>
+                <tr><td>Снятие/установка элемента</td><td>—</td><td>от 5 000 ₸</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="prices__panel" id="p3">
+            <table class="price-table">
+              <thead><tr><th>Размер вмятины</th><th>Срок</th><th>Цена</th></tr></thead>
+              <tbody>
+                <tr><td>До 2 см (след от градины)</td><td>от 30 минут</td><td>от 8 000 ₸</td></tr>
+                <tr><td>2–5 см</td><td>1–2 часа</td><td>от 15 000 ₸</td></tr>
+                <tr><td>5–10 см</td><td>2–4 часа</td><td>от 25 000 ₸</td></tr>
+                <tr><td>10–20 см</td><td>1 день</td><td>от 40 000 ₸</td></tr>
+                <tr><td>Устранение последствий града (весь кузов)</td><td>2–5 дней</td><td>от 150 000 ₸</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="prices__panel" id="p4">
+            <table class="price-table">
+              <thead><tr><th>Услуга</th><th>Срок</th><th>Цена</th></tr></thead>
+              <tbody>
+                <tr><td>Восстановительная полировка кузова</td><td>1–2 дня</td><td>от 70 000 ₸</td></tr>
+                <tr><td>Защитная полировка</td><td>4 часа</td><td>от 35 000 ₸</td></tr>
+                <tr><td>Керамическое покрытие (2 слоя)</td><td>2 дня</td><td>от 120 000 ₸</td></tr>
+                <tr><td>Полиуретановая плёнка (зоны риска)</td><td>1–2 дня</td><td>от 180 000 ₸</td></tr>
+                <tr><td>Антикоррозийная обработка днища и арок</td><td>1 день</td><td>от 40 000 ₸</td></tr>
+                <tr><td>Обработка скрытых полостей</td><td>1 день</td><td>от 30 000 ₸</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== О НАС / ПРЕИМУЩЕСТВА ===================== -->
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">О компании</span>
+          <h2 class="section__title">Почему нам доверяют</h2>
+          <p class="section__text">«КузовМастер» — техцентр площадью 1 200 м² с собственной покрасочной камерой, стапелем и лабораторией подбора краски.</p>
+        </div>
+
+        <div class="features">
+          <div class="feature reveal"><span class="feature__icon">🏭</span><h3>Покрасочная камера</h3><p>Камера с подогревом до +60 °C и фильтрацией воздуха: покрытие без пыли и подтёков.</p></div>
+          <div class="feature reveal"><span class="feature__icon">🎯</span><h3>Точный подбор цвета</h3><p>Спектрофотометр и база из 200 000 формул. Цвет совпадает с заводским.</p></div>
+          <div class="feature reveal"><span class="feature__icon">📐</span><h3>Стапель и замер</h3><p>Электронная измерительная система: восстанавливаем геометрию с точностью до 1 мм.</p></div>
+          <div class="feature reveal"><span class="feature__icon">🧾</span><h3>Фиксированная смета</h3><p>Цена прописывается в договоре и не растёт в процессе ремонта.</p></div>
+          <div class="feature reveal"><span class="feature__icon">📸</span><h3>Фотоотчёт</h3><p>Присылаем фото каждого этапа ремонта — вы видите, что происходит с авто.</p></div>
+          <div class="feature reveal"><span class="feature__icon">🛡️</span><h3>Гарантия до 3 лет</h3><p>Официальная гарантия на кузовные и малярные работы с гарантийным талоном.</p></div>
+        </div>
+
+        <div class="team">
+          <h3 class="team__title reveal">Наша команда</h3>
+          <div class="team__grid">
+            <div class="member reveal"><div class="member__ava" style="--c1:#ff6a1a;--c2:#ffb02e">АС</div><h4>Алексей Смирнов</h4><span>Главный мастер-кузовщик</span><small>Стаж 18 лет</small></div>
+            <div class="member reveal"><div class="member__ava" style="--c1:#3aa0ff;--c2:#5ee1ff">ЕН</div><h4>Ержан Нурланов</h4><span>Маляр-колорист</span><small>Стаж 12 лет</small></div>
+            <div class="member reveal"><div class="member__ava" style="--c1:#9b5cff;--c2:#d18bff">ДК</div><h4>Дмитрий Ким</h4><span>Мастер PDR</span><small>Стаж 9 лет</small></div>
+            <div class="member reveal"><div class="member__ava" style="--c1:#1fc28b;--c2:#7af0c0">АБ</div><h4>Айгерим Бекова</h4><span>Мастер-приёмщик</span><small>Стаж 7 лет</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ОТЗЫВЫ ===================== -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag">Отзывы</span>
+          <h2 class="section__title">Что говорят клиенты</h2>
+          <div class="rating"><span class="stars">★★★★★</span> <b>4,9</b> <span class="muted">— средняя оценка по 640 отзывам</span></div>
+        </div>
+
+        <div class="slider reveal" id="reviewsSlider">
+          <div class="slider__track" id="reviewsTrack">
+            <figure class="review"><div class="stars">★★★★★</div><blockquote>После ДТП переднюю часть восстановили так, что не отличить от заводской. Каждый день присылали фото — очень удобно.</blockquote><figcaption><b>Марат К.</b><span>Toyota Camry 70</span></figcaption></figure>
+            <figure class="review"><div class="stars">★★★★★</div><blockquote>Убрали вмятину на двери без покраски за час, пока я пил кофе в зоне ожидания. Цена — как и назвали по телефону.</blockquote><figcaption><b>Анна П.</b><span>Kia Rio</span></figcaption></figure>
+            <figure class="review"><div class="stars">★★★★★</div><blockquote>Перекрашивали капот и крыло в сложный перламутр. Цвет попали идеально, даже на солнце разницы нет.</blockquote><figcaption><b>Тимур А.</b><span>Lexus RX</span></figcaption></figure>
+            <figure class="review"><div class="stars">★★★★☆</div><blockquote>Ремонт по КАСКО: всё согласовали со страховой сами, я только привёз машину. Пришлось подождать запчасти, но результат отличный.</blockquote><figcaption><b>Ольга С.</b><span>Hyundai Tucson</span></figcaption></figure>
+            <figure class="review"><div class="stars">★★★★★</div><blockquote>Сделали антикор и полировку перед продажей — машину купили в первый же день за хорошую цену.</blockquote><figcaption><b>Ерлан Ж.</b><span>Volkswagen Polo</span></figcaption></figure>
+          </div>
+          <div class="slider__controls">
+            <button class="slider__btn" id="revPrev" aria-label="Предыдущий отзыв">←</button>
+            <div class="slider__dots" id="revDots"></div>
+            <button class="slider__btn" id="revNext" aria-label="Следующий отзыв">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section section--alt" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <span class="section__tag">Вопросы и ответы</span>
+          <h2 class="section__title">Частые вопросы</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item reveal" open><summary>Сколько стоит осмотр и составление сметы?</summary><p>Осмотр, замер толщины ЛКП и составление сметы — бесплатно. Занимает 15–30 минут.</p></details>
+          <details class="faq__item reveal"><summary>Будет ли отличаться цвет после покраски?</summary><p>Нет. Цвет подбирается по спектрофотометру с выкрасом на тестовой пластине и сравнением под разными источниками света. При необходимости выполняем плавный переход на соседние детали.</p></details>
+          <details class="faq__item reveal"><summary>Работаете ли вы со страховыми компаниями?</summary><p>Да, мы ремонтируем по полисам КАСКО и ОГПО ВТС. Поможем собрать документы, согласуем смету со страховой и сообщим, когда можно забирать автомобиль.</p></details>
+          <details class="faq__item reveal"><summary>Какая гарантия на работы?</summary><p>На кузовной ремонт и покраску — до 3 лет, на PDR — 1 год, на антикоррозийную обработку — 2 года. Гарантия оформляется талоном.</p></details>
+          <details class="faq__item reveal"><summary>Можно ли использовать свои запчасти?</summary><p>Да, можно. Мы также можем заказать оригинальные или качественные аналоги — сроки поставки от 1 до 14 дней.</p></details>
+          <details class="faq__item reveal"><summary>Как оплатить ремонт?</summary><p>Наличными, банковской картой, переводом или через Kaspi. Для юрлиц — безналичный расчёт с НДС. Доступна рассрочка на 3–12 месяцев.</p></details>
+          <details class="faq__item reveal"><summary>Есть ли подменный автомобиль?</summary><p>При ремонте дольше 5 дней предоставляем подменный автомобиль или скидку 10% на такси до работы и обратно.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЗАПИСЬ ===================== -->
+    <section class="section" id="booking">
+      <div class="container booking">
+        <div class="booking__info reveal">
+          <span class="section__tag">Запись на ремонт</span>
+          <h2 class="section__title">Запишитесь на бесплатный осмотр</h2>
+          <p class="section__text">Оставьте заявку — менеджер перезвонит в течение 15 минут, уточнит детали и подберёт удобное время.</p>
+          <ul class="checklist">
+            <li>Бесплатная диагностика кузова и ЛКП</li>
+            <li>Смета в день обращения</li>
+            <li>Скидка 10% при записи через сайт</li>
+            <li>Зона ожидания с Wi‑Fi и кофе</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="bookingForm" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="fName">Имя *</label>
+              <input id="fName" name="name" type="text" placeholder="Ваше имя" required minlength="2" />
+              <small class="form__error"></small>
+            </div>
+            <div class="form__field">
+              <label for="fPhone">Телефон *</label>
+              <input id="fPhone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required />
+              <small class="form__error"></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="fCar">Марка и модель авто *</label>
+              <input id="fCar" name="car" type="text" placeholder="Например, Toyota Camry" required />
+              <small class="form__error"></small>
+            </div>
+            <div class="form__field">
+              <label for="fService">Услуга</label>
+              <select id="fService" name="service">
+                <option>Кузовной ремонт</option>
+                <option>Покраска авто</option>
+                <option>Удаление вмятин без покраски</option>
+                <option>Стапельные работы</option>
+                <option>Полировка и керамика</option>
+                <option>Антикоррозийная обработка</option>
+                <option>Ремонт бамперов и пластика</option>
+                <option>Ремонт по страховке</option>
+                <option>Нужна консультация</option>
+              </select>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="fDate">Желаемая дата *</label>
+              <input id="fDate" name="date" type="date" required />
+              <small class="form__error"></small>
+            </div>
+            <div class="form__field">
+              <label for="fTime">Время</label>
+              <select id="fTime" name="time"></select>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="fComment">Опишите повреждения</label>
+            <textarea id="fComment" name="comment" rows="3" placeholder="Например: вмятина на задней левой двери, царапина на бампере"></textarea>
+          </div>
+          <div class="form__field">
+            <label class="upload" for="fPhotos">
+              <input id="fPhotos" type="file" accept="image/*" multiple />
+              <span>📎 Прикрепите фото повреждений (необязательно)</span>
+            </label>
+            <div class="upload__preview" id="photoPreview"></div>
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="fAgree" required />
+            <span>Я согласен(на) на обработку персональных данных</span>
+          </label>
+          <small class="form__error" id="agreeError"></small>
+          <button type="submit" class="btn btn--primary btn--block">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== КОНТАКТЫ ===================== -->
+    <section class="section section--alt" id="contacts">
+      <div class="container contacts">
+        <div class="contacts__info reveal">
+          <span class="section__tag">Контакты</span>
+          <h2 class="section__title">Как нас найти</h2>
+          <ul class="contacts__list">
+            <li><span>📍</span><div><b>Адрес</b>г. Астана, ул. Кокше Коменгерулы, 66</div></li>
+            <li><span>📞</span><div><b>Телефон</b><a href="tel:+77777777777">+7 (777) 777-77-77</a></div></li>
+            <li><span>✉️</span><div><b>Почта</b><a href="mailto:info@kuzovmaster.kz">info@kuzovmaster.kz</a></div></li>
+            <li><span>🕘</span><div><b>Режим работы</b>Ежедневно 9:00–21:00, без выходных</div></li>
+          </ul>
+          <div class="socials">
+            <a href="https://wa.me/77777777777" target="_blank" rel="noopener" class="social">WhatsApp</a>
+            <a href="https://t.me/" target="_blank" rel="noopener" class="social">Telegram</a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" class="social">Instagram</a>
+          </div>
+        </div>
+        <div class="contacts__map reveal">
+          <iframe title="Карта проезда" loading="lazy" src="https://maps.google.com/maps?q=%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0&z=12&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="#top" class="logo"><span class="logo__mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 25l3.5-7c.7-1.4 2-2.2 3.6-2.2h13.8c1.5 0 2.9.8 3.6 2.2L34 25v5H6z" fill="currentColor"/><circle cx="12.5" cy="30" r="3.5" fill="#0d1015"/><circle cx="27.5" cy="30" r="3.5" fill="#0d1015"/></svg></span><span class="logo__text">Кузов<b>Мастер</b></span></a>
+        <p class="muted">Кузовной ремонт и покраска автомобилей в Астане с 2014 года.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Услуги</h4>
+        <a href="#services">Кузовной ремонт</a><a href="#services">Покраска</a><a href="#services">PDR</a><a href="#services">Полировка</a>
+      </div>
+      <div class="footer__col">
+        <h4>Клиентам</h4>
+        <a href="#calc">Калькулятор</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="#booking">Запись</a>
+      </div>
+      <div class="footer__col">
+        <h4>Связь</h4>
+        <a href="tel:+77777777777">+7 (777) 777-77-77</a><a href="mailto:info@kuzovmaster.kz">info@kuzovmaster.kz</a><span class="muted">Ежедневно 9:00–21:00</span>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> КузовМастер. Все права защищены.</span>
+      <span class="muted">Дипломный проект. Информация на сайте не является публичной офертой.</span>
+    </div>
+  </footer>
+
+  <!-- Плавающие кнопки -->
+  <a href="https://wa.me/77777777777" class="float-wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+    <svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3a13 13 0 00-11.2 19.6L3 29l6.6-1.7A13 13 0 1016 3zm0 23.6c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1116 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 01-4.3-3.8c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  </a>
+  <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close aria-label="Закрыть">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
