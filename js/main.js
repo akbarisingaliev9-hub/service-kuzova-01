@@ -309,12 +309,32 @@
     return forms[2];
   }
 
-  // Перенос результата расчёта в форму записи
+  // Текст с выбором клиента в калькуляторе (для сообщения в WhatsApp)
+  function calcSummary() {
+    if (!state.parts.size) return "";
+    const chipText = (group) => $(`[data-group="${group}"] .chip.is-active`).textContent.trim();
+    const lines = [
+      "🚗 Расчёт на сайте:",
+      `• Класс авто: ${chipText("carClass")}`,
+      `• Вид работ: ${chipText("work")}`,
+    ];
+    if (WORKS[state.work].paint) lines.push(`• Краска: ${chipText("paint")}`);
+    lines.push(`• Повреждённые детали: ${[...state.parts].map((id) => PARTS[id].name.toLowerCase()).join(", ")}`);
+    lines.push(`• Стоимость: ${$("#calcPrice").textContent}`);
+    lines.push(`• ${$("#calcDays").textContent}`);
+    return lines.join("\n");
+  }
+
+  // Кнопка калькулятора: сразу открывает WhatsApp с расчётом
   $("#calcBook").addEventListener("click", () => {
-    if (!state.parts.size) return;
-    const parts = [...state.parts].map((id) => PARTS[id].name.toLowerCase()).join(", ");
-    $("#fComment").value = `${WORKS[state.work].label}: ${parts}. Расчёт на сайте: ${$("#calcPrice").textContent}`;
-    selectService(state.work === "pdr" ? "Удаление вмятин без покраски" : state.work === "paint" ? "Покраска авто" : "Кузовной ремонт");
+    if (!state.parts.size) {
+      const hint = $(".calc__hint");
+      hint.textContent = "Сначала выберите повреждённые детали на схеме ↑";
+      hint.style.color = "var(--accent)";
+      carTop.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    openWhatsApp(`Здравствуйте! Хочу записаться на ремонт.\n\n${calcSummary()}\n\nПодскажите, когда можно приехать на осмотр?`);
   });
 
   updateCalc();
@@ -559,9 +579,9 @@
     }
     const data = Object.fromEntries(new FormData(form).entries());
     data.created = new Date().toISOString();
+    const photosCount = $("#fPhotos").files.length;
 
-    // Демонстрационный режим: заявка сохраняется в localStorage браузера.
-    // В реальном проекте здесь будет отправка на сервер (fetch на API или Telegram-бот).
+    // Копия заявки сохраняется в localStorage браузера (история заявок клиента)
     try {
       const list = JSON.parse(localStorage.getItem("kuzov_bookings") || "[]");
       list.push(data);
@@ -571,22 +591,49 @@
     }
 
     const dateText = new Date(data.date + "T00:00").toLocaleDateString("ru-RU", { day: "numeric", month: "long", weekday: "long" });
+
+    // Сообщение для WhatsApp: данные формы + выбор в калькуляторе (если был)
+    const lines = [
+      "Здравствуйте! Заявка на ремонт с сайта КузовМастер.",
+      "",
+      `👤 Имя: ${data.name}`,
+      `📞 Телефон: ${data.phone}`,
+      `🚘 Автомобиль: ${data.car}`,
+      `🔧 Услуга: ${data.service}`,
+      `📅 Дата: ${dateText}, ${data.time}`,
+    ];
+    if (data.comment.trim()) lines.push(`📝 Повреждения: ${data.comment.trim()}`);
+    const calc = calcSummary();
+    if (calc) lines.push("", calc);
+    if (photosCount) lines.push("", `📎 Фото повреждений (${photosCount} шт.) отправлю в этом чате.`);
+    openWhatsApp(lines.join("\n"));
+
     openModal(`
       <div class="modal__success">
         <div class="icon">✓</div>
-        <h3>Заявка отправлена!</h3>
-        <p>${escapeHTML(data.name)}, спасибо! Мы перезвоним на номер <b>${escapeHTML(data.phone)}</b> в течение 15 минут.</p>
+        <h3>Заявка готова!</h3>
+        <p>${escapeHTML(data.name)}, мы открыли WhatsApp с вашей заявкой. Нажмите <b>«Отправить»</b> в чате — менеджер ответит в течение 15 минут.</p>
+        ${photosCount ? "<p>Не забудьте прикрепить фото повреждений в чате WhatsApp 📎</p>" : ""}
         <div class="modal__meta">
           <div><span>Услуга</span><b>${escapeHTML(data.service)}</b></div>
           <div><span>Дата</span><b>${dateText}</b></div>
           <div><span>Время</span><b>${escapeHTML(data.time)}</b></div>
         </div>
-        <button class="btn btn--primary btn--block" data-close>Отлично</button>
+        <button class="btn btn--primary btn--block" data-close>Понятно</button>
       </div>
     `);
     form.reset();
     $("#photoPreview").innerHTML = "";
   });
+
+  // Открывает чат WhatsApp с готовым текстом сообщения
+  const WA_NUMBER = "77785663630";
+  function openWhatsApp(text) {
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const win = window.open(url, "_blank");
+    if (win) win.opener = null;
+    else window.location.href = url; // если браузер заблокировал новое окно
+  }
 
   function escapeHTML(s) {
     return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
