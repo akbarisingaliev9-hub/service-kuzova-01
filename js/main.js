@@ -630,9 +630,14 @@
   const WA_NUMBER = "77785663630";
   function openWhatsApp(text) {
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
-    const win = window.open(url, "_blank");
-    if (win) win.opener = null;
-    else window.location.href = url; // если браузер заблокировал новое окно
+    // Открываем через обычную ссылку: так браузеры не блокируют переход
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 
   function escapeHTML(s) {
