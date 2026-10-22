@@ -397,10 +397,25 @@
   const baRange = $("#baRange");
   const baHandle = $("#baHandle");
 
+  // Если в папке images/works/ лежат настоящие фото (case1-before.jpg, case1-after.jpg и т.д.),
+  // показываем их. Если фото нет, остаётся SVG-иллюстрация.
+  function fillLayer(layer, c, broken, i) {
+    const src = `images/works/case${i + 1}-${broken ? "before" : "after"}.jpg`;
+    const img = new Image();
+    img.alt = broken ? "До ремонта" : "После ремонта";
+    img.className = "ba__photo";
+    img.onload = () => {
+      layer.innerHTML = "";
+      layer.appendChild(img);
+    };
+    layer.innerHTML = carSVG(c, broken, i);
+    img.src = src;
+  }
+
   function showCase(i) {
     const c = CASES[i];
-    baBefore.innerHTML = carSVG(c, true, i);
-    baAfter.innerHTML = carSVG(c, false, i);
+    fillLayer(baBefore, c, true, i);
+    fillLayer(baAfter, c, false, i);
     $("#worksInfo").innerHTML = c.info.map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join("");
     $$(".works__tab").forEach((t) => t.classList.toggle("is-active", Number(t.dataset.case) === i));
   }
@@ -420,6 +435,28 @@
       $$(".prices__panel").forEach((p) => p.classList.toggle("is-active", p.id === tab.dataset.tab));
     });
   });
+
+  /* ---------- Скриншоты отзывов из 2ГИС ---------- */
+  // Скриншоты кладутся в images/reviews/ под именами 1.jpg, 2.jpg … 8.jpg.
+  // Показываются только те, что реально есть в папке.
+  const shotsWrap = $("#reviewShots");
+  if (shotsWrap) {
+    for (let n = 1; n <= 8; n++) {
+      const img = new Image();
+      img.alt = `Отзыв клиента в 2ГИС №${n}`;
+      img.onload = () => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "shot";
+        btn.style.order = n;
+        btn.appendChild(img);
+        btn.addEventListener("click", () => openModal(`<img class="shot__full" src="${img.src}" alt="${img.alt}" />`));
+        shotsWrap.appendChild(btn);
+        shotsWrap.hidden = false;
+      };
+      img.src = `images/reviews/${n}.jpg`;
+    }
+  }
 
   /* ---------- 8. Форма записи ---------- */
   const form = $("#bookingForm");
