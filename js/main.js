@@ -1,10 +1,10 @@
 /* =========================================================
-   КузовМастер — интерактивность сайта
+   service kuzova 01 — интерактивность сайта
    1. Шапка и меню        6. Слайдер «до / после»
    2. Анимации появления  7. Вкладки цен
-   3. Счётчики            8. Слайдер отзывов
-   4. Модальные окна      9. Форма записи
-   5. Калькулятор        10. Прочее
+   3. Счётчики            8. Форма записи
+   4. Модальные окна      9. Прочее
+   5. Калькулятор
    ========================================================= */
 (function () {
   "use strict";
@@ -132,22 +132,16 @@
       price: "от 45 000 ₸", time: "2–7 дней", warranty: "3 года",
       includes: ["Компьютерный подбор цвета спектрофотометром", "Тестовый выкрас и сверка цвета", "Шпатлёвка, грунт, матирование", "Покраска базой и лаком в камере", "Сушка при +60 °C и финишная полировка"],
     },
-    pdr: {
-      title: "Удаление вмятин без покраски (PDR)",
-      text: "Технология Paintless Dent Repair позволяет выправить вмятину специальным инструментом изнутри, не повреждая заводское лакокрасочное покрытие. Идеально для вмятин от града и парковочных повреждений.",
-      price: "от 8 000 ₸", time: "от 1 часа", warranty: "1 год",
-      includes: ["Оценка возможности PDR при осмотре", "Выправка рычагами через технологические отверстия", "Метод клеевой вытяжки", "Контроль под специальной лампой", "Сохранение заводской краски"],
-    },
     frame: {
-      title: "Стапельные работы",
+      title: "Стапельные работы (геометрия)",
       text: "После серьёзного ДТП нарушается геометрия кузова — авто «уводит», неравномерно стирается резина, не закрываются двери. Восстанавливаем геометрию на стапеле по заводским контрольным точкам.",
-      price: "от 60 000 ₸", time: "2–4 дня", warranty: "3 года",
+      price: "от 100 000 ₸", time: "2–4 дня", warranty: "3 года",
       includes: ["Электронный замер геометрии", "Распечатка карты замеров до и после", "Вытяжка лонжеронов, стоек, проёмов", "Замена силовых элементов", "Проверка зазоров и развал-схождение"],
     },
     polish: {
       title: "Полировка и керамика",
       text: "Убираем мелкие царапины, голограммы и потёртости, возвращаем глубину цвета и блеск. Для долговременной защиты наносим керамическое покрытие или полиуретановую плёнку.",
-      price: "от 35 000 ₸", time: "1–3 дня", warranty: "до 2 лет (керамика)",
+      price: "от 60 000 ₸", time: "1–3 дня", warranty: "до 2 лет (керамика)",
       includes: ["Детейлинг-мойка и очистка глиной", "Многоэтапная абразивная полировка", "Нанесение керамики в 1–3 слоя", "Оклейка зон риска плёнкой", "Инструкция по уходу"],
     },
     anticor: {
@@ -161,12 +155,6 @@
       text: "Восстанавливаем бамперы, накладки, решётки и подкрылки. В большинстве случаев ремонт в 2–3 раза дешевле покупки новой детали.",
       price: "от 15 000 ₸", time: "1–2 дня", warranty: "1 год",
       includes: ["Пайка трещин и разрывов", "Восстановление креплений и «ушек»", "Выравнивание вмятин нагревом", "Грунт для пластика и покраска", "Установка датчиков парковки"],
-    },
-    insurance: {
-      title: "Ремонт по страховке",
-      text: "Работаем по полисам КАСКО и ОГПО ВТС. Берём на себя общение со страховой компанией: от оформления документов до согласования сметы.",
-      price: "по полису", time: "под ключ", warranty: "3 года",
-      includes: ["Консультация по страховому случаю", "Фотофиксация и акт осмотра", "Согласование калькуляции со страховой", "Ремонт без доплат в рамках полиса", "Подменный автомобиль при долгом ремонте"],
     },
   };
 
@@ -209,7 +197,6 @@
   };
   // Базовая цена одного элемента (малый класс) и срок в днях
   const WORKS = {
-    pdr: { price: 20000, days: 0.3, paint: false, label: "PDR без покраски" },
     paint: { price: 45000, days: 1, paint: true, label: "Только покраска" },
     repair: { price: 75000, days: 1.5, paint: true, label: "Ремонт + покраска" },
     replace: { price: 105000, days: 2, paint: true, label: "Замена + покраска" },
@@ -296,9 +283,7 @@
     priceEl.textContent = `${formatPrice(min)} – ${formatPrice(max)}`;
 
     let days = Math.ceil(work.days + (n - 1) * work.days * 0.6);
-    let daysText;
-    if (state.work === "pdr" && n <= 2) daysText = "в течение дня";
-    else daysText = `${days}–${days + 1} ${plural(days + 1, ["день", "дня", "дней"])}`;
+    const daysText = `${days}–${days + 1} ${plural(days + 1, ["день", "дня", "дней"])}`;
     daysEl.textContent = `Срок: ${daysText}` + (discount ? ` · скидка ${discount * 100}% за комплекс` : "");
   }
 
@@ -350,7 +335,7 @@
         <ellipse cx="362" cy="140" rx="26" ry="12" fill="#000" opacity=".35"/>
         <path d="M335 128 Q370 150 408 132" stroke="#fff" stroke-opacity=".35" stroke-width="2" fill="none"/>
         <path d="M330 160 L410 152" stroke="#c9d6ff" stroke-width="1.5" opacity=".6"/>`,
-      info: [["Автомобиль", "Toyota Camry"], ["Работы", "PDR, без покраски"], ["Срок", "2 часа"], ["Стоимость", "18 000 ₸"]],
+      info: [["Автомобиль", "Toyota Camry"], ["Работы", "Рихтовка и покраска двери"], ["Срок", "1 день"], ["Стоимость", "45 000 ₸"]],
     },
     {
       color: ["#e8e8ec", "#9a9ca6"],
@@ -436,56 +421,7 @@
     });
   });
 
-  /* ---------- 8. Слайдер отзывов ---------- */
-  const track = $("#reviewsTrack");
-  const reviews = $$(".review", track);
-  const dotsWrap = $("#revDots");
-  let revIndex = 0;
-  let revTimer;
-
-  const perView = () => (window.innerWidth <= 600 ? 1 : window.innerWidth <= 960 ? 2 : 3);
-  const maxIndex = () => Math.max(0, reviews.length - perView());
-
-  function renderDots() {
-    dotsWrap.innerHTML = "";
-    for (let i = 0; i <= maxIndex(); i++) {
-      const b = document.createElement("button");
-      b.setAttribute("aria-label", `Отзыв ${i + 1}`);
-      b.addEventListener("click", () => goTo(i));
-      dotsWrap.appendChild(b);
-    }
-  }
-  function goTo(i) {
-    const max = maxIndex();
-    revIndex = i > max ? 0 : i < 0 ? max : i;
-    track.style.transform = `translateX(-${(revIndex * 100) / perView()}%)`;
-    $$("button", dotsWrap).forEach((d, k) => d.classList.toggle("is-active", k === revIndex));
-    restartAuto();
-  }
-  function restartAuto() {
-    clearInterval(revTimer);
-    revTimer = setInterval(() => goTo(revIndex + 1), 6000);
-  }
-  $("#revPrev").addEventListener("click", () => goTo(revIndex - 1));
-  $("#revNext").addEventListener("click", () => goTo(revIndex + 1));
-  window.addEventListener("resize", () => {
-    renderDots();
-    goTo(Math.min(revIndex, maxIndex()));
-  });
-  renderDots();
-  goTo(0);
-
-  // Свайп на мобильных
-  let touchX = null;
-  track.addEventListener("touchstart", (e) => (touchX = e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchend", (e) => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 50) goTo(revIndex + (dx < 0 ? 1 : -1));
-    touchX = null;
-  });
-
-  /* ---------- 9. Форма записи ---------- */
+  /* ---------- 8. Форма записи ---------- */
   const form = $("#bookingForm");
   const phone = $("#fPhone");
   const dateInput = $("#fDate");
@@ -594,7 +530,7 @@
 
     // Сообщение для WhatsApp: данные формы + выбор в калькуляторе (если был)
     const lines = [
-      "Здравствуйте! Заявка на ремонт с сайта КузовМастер.",
+      "Здравствуйте! Заявка на ремонт с сайта service kuzova 01.",
       "",
       `👤 Имя: ${data.name}`,
       `📞 Телефон: ${data.phone}`,
@@ -644,6 +580,6 @@
     return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
 
-  /* ---------- 10. Прочее ---------- */
+  /* ---------- 9. Прочее ---------- */
   $("#year").textContent = new Date().getFullYear();
 })();
