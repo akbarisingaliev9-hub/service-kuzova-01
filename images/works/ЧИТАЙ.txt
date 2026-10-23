@@ -1,0 +1,3 @@
+Фото работ для слайдера «до / после».
+Имена: case1-before.jpg, case1-after.jpg, case2-before.jpg, case2-after.jpg, case3-before.jpg, case3-after.jpg
+Лучше горизонтальные, 16:9 или 2:1. Если фото нет, показывается рисунок.

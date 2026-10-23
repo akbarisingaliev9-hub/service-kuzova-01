@@ -359,36 +359,86 @@
     },
   ];
 
+  // Сцена «в мастерской»: стена, лампы, пол с отражением автомобиля
   function carSVG(c, broken, idx) {
     const id = `g${idx}${broken ? "b" : "a"}`;
-    const shine = broken ? "" : `<path d="M90 116 Q300 100 560 118" stroke="#fff" stroke-opacity=".55" stroke-width="3" fill="none"/>
-      <path d="M200 60 L240 52" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linecap="round"/>`;
-    const bg = broken ? "#1a1416" : "#101a1e";
+    const light = broken ? 0.45 : 1; // «до» снято в полумраке, «после» — при ярком свете
+    const wheel = (x) => `
+      <circle cx="${x}" cy="180" r="36" fill="#0b0b0d"/>
+      <circle cx="${x}" cy="180" r="22" fill="url(#${id}rim)"/>
+      <g stroke="#2a2e35" stroke-width="3">${[0, 72, 144, 216, 288].map((a) => `<line x1="${x}" y1="180" x2="${x + 20 * Math.cos((a * Math.PI) / 180)}" y2="${180 + 20 * Math.sin((a * Math.PI) / 180)}"/>`).join("")}</g>
+      <circle cx="${x}" cy="180" r="5" fill="#9aa1ab"/>`;
+    const car = `
+      <path d="${CAR_PATH}" fill="url(#${id})"/>
+      <path d="${CAR_PATH}" fill="url(#${id}gloss)"/>
+      <path d="M190 102 Q228 70 270 58 L305 53 L305 102 Z" fill="url(#${id}glass)"/>
+      <path d="M320 52 L366 51 Q408 54 438 86 L448 102 L320 102 Z" fill="url(#${id}glass)"/>
+      <path d="M312 104 L312 176 M445 106 L452 176" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
+      <rect x="268" y="128" width="24" height="4" rx="2" fill="#000" opacity=".35"/>
+      <rect x="400" y="128" width="24" height="4" rx="2" fill="#000" opacity=".35"/>
+      <path d="M560 128 Q575 130 578 142 L556 140 Z" fill="${broken ? "#8d8a7a" : "#fff6d6"}"/>
+      <path d="M36 136 L52 133 L50 146 L35 147 Z" fill="#c4161c"/>
+      ${broken ? c.damage : `<path d="M90 118 Q300 104 560 120" stroke="#fff" stroke-opacity=".5" stroke-width="2.5" fill="none"/>
+        <path d="M205 62 L245 54" stroke="#fff" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/>`}
+      ${wheel(157)}${wheel(478)}`;
+    const lamps = [110, 310, 510].map((x) => `
+      <rect x="${x - 60}" y="18" width="120" height="7" rx="3" fill="#f4f7ff" opacity="${0.35 + 0.65 * light}"/>
+      <path d="M${x - 60} 25 L${x - 130} 300 L${x + 130} 300 L${x + 60} 25 Z" fill="url(#${id}beam)"/>`).join("");
+    const panels = Array.from({ length: 16 }, (_, k) => `<rect x="${k * 40}" y="0" width="38" height="232" fill="#fff" opacity="${k % 2 ? 0.015 : 0.03}"/>`).join("");
+    const tiles = Array.from({ length: 13 }, (_, k) => `<line x1="${310 + (k - 6) * 60}" y1="232" x2="${310 + (k - 6) * 160}" y2="300" stroke="#fff" stroke-opacity=".05"/>`).join("");
     return `
       <svg viewBox="0 0 620 300" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="${c.color[0]}" stop-opacity="${broken ? 0.8 : 1}"/>
+            <stop offset="0" stop-color="${c.color[0]}"/>
             <stop offset="1" stop-color="${c.color[1]}"/>
           </linearGradient>
-          <radialGradient id="${id}l" cx=".5" cy=".3" r=".8">
-            <stop offset="0" stop-color="${broken ? "#3a2a2a" : "#1f4a55"}"/>
-            <stop offset="1" stop-color="${bg}"/>
+          <linearGradient id="${id}gloss" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="${broken ? 0.05 : 0.35}"/>
+            <stop offset=".35" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#000" stop-opacity="${broken ? 0.45 : 0.25}"/>
+          </linearGradient>
+          <linearGradient id="${id}glass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a9d2f0" stop-opacity="${broken ? 0.35 : 0.8}"/>
+            <stop offset="1" stop-color="#121c27"/>
+          </linearGradient>
+          <radialGradient id="${id}rim" cx=".4" cy=".35" r=".8">
+            <stop offset="0" stop-color="#dfe3e8"/><stop offset="1" stop-color="#5d646e"/>
           </radialGradient>
+          <linearGradient id="${id}wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="${broken ? "#16171b" : "#1c2229"}"/>
+            <stop offset="1" stop-color="${broken ? "#25231f" : "#2b333c"}"/>
+          </linearGradient>
+          <linearGradient id="${id}floor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="${broken ? "#2a2723" : "#39424c"}"/>
+            <stop offset="1" stop-color="${broken ? "#121110" : "#14181d"}"/>
+          </linearGradient>
+          <linearGradient id="${id}beam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eaf2ff" stop-opacity="${0.16 * light}"/>
+            <stop offset="1" stop-color="#eaf2ff" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="${id}fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="${broken ? 0.12 : 0.35}"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="${id}mask"><rect x="0" y="232" width="620" height="70" fill="url(#${id}fade)"/></mask>
         </defs>
-        <rect width="620" height="300" fill="url(#${id}l)"/>
-        <path d="M0 240 H620" stroke="#fff" stroke-opacity=".06"/>
-        <g transform="translate(0 30)">
-          <ellipse cx="310" cy="212" rx="285" ry="14" fill="#000" opacity=".5"/>
-          <path d="${CAR_PATH}" fill="url(#${id})"/>
-          <path d="M190 102 Q228 70 270 58 L305 53 L305 102 Z" fill="#1c2a3a" opacity=".9"/>
-          <path d="M320 52 L366 51 Q408 54 438 86 L448 102 L320 102 Z" fill="#1c2a3a" opacity=".9"/>
-          <path d="M312 104 L312 176 M445 106 L452 176" stroke="#000" stroke-opacity=".35" stroke-width="2"/>
-          ${broken ? c.damage : shine}
-          <circle cx="157" cy="180" r="36" fill="#111"/><circle cx="157" cy="180" r="20" fill="#454b55"/>
-          <circle cx="478" cy="180" r="36" fill="#111"/><circle cx="478" cy="180" r="20" fill="#454b55"/>
+        <rect width="620" height="232" fill="url(#${id}wall)"/>
+        ${panels}
+        <rect x="440" y="36" width="150" height="30" rx="6" fill="#000" opacity=".35"/>
+        <text x="515" y="56" text-anchor="middle" font-family="Unbounded, Inter, sans-serif" font-size="12" font-weight="700" fill="#ff8a3d" opacity="${0.5 + 0.5 * light}">service kuzova 01</text>
+        <g stroke="#6b7480" stroke-width="2" opacity=".35"><path d="M40 70 h70 M50 70 v28 M70 70 v22 M90 70 v32"/></g>
+        <rect y="232" width="620" height="68" fill="url(#${id}floor)"/>
+        ${tiles}
+        <g transform="translate(620 0) scale(-1 1)">
+          <g mask="url(#${id}mask)"><g transform="translate(0 30) translate(0 432) scale(1 -1)">${car}</g></g>
+          <g transform="translate(0 30)">
+            <ellipse cx="310" cy="212" rx="290" ry="12" fill="#000" opacity=".55"/>
+            ${car}
+          </g>
         </g>
-        ${broken ? "" : '<g fill="#fff" opacity=".9"><path d="M80 60l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M540 90l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>'}
+        ${lamps}
+        ${broken ? '<rect width="620" height="300" fill="#2a1a0a" opacity=".18"/>' : ""}
       </svg>`;
   }
 
@@ -397,10 +447,25 @@
   const baRange = $("#baRange");
   const baHandle = $("#baHandle");
 
+  // Если в папке images/works/ лежат настоящие фото (case1-before.jpg, case1-after.jpg и т.д.),
+  // показываем их. Если фото нет, остаётся SVG-иллюстрация.
+  function fillLayer(layer, c, broken, i) {
+    const src = `images/works/case${i + 1}-${broken ? "before" : "after"}.jpg`;
+    const img = new Image();
+    img.alt = broken ? "До ремонта" : "После ремонта";
+    img.className = "ba__photo";
+    img.onload = () => {
+      layer.innerHTML = "";
+      layer.appendChild(img);
+    };
+    layer.innerHTML = carSVG(c, broken, i);
+    img.src = src;
+  }
+
   function showCase(i) {
     const c = CASES[i];
-    baBefore.innerHTML = carSVG(c, true, i);
-    baAfter.innerHTML = carSVG(c, false, i);
+    fillLayer(baBefore, c, true, i);
+    fillLayer(baAfter, c, false, i);
     $("#worksInfo").innerHTML = c.info.map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join("");
     $$(".works__tab").forEach((t) => t.classList.toggle("is-active", Number(t.dataset.case) === i));
   }
@@ -457,8 +522,8 @@
   dateInput.min = toISO(today);
   dateInput.max = toISO(new Date(today.getTime() + 60 * 864e5));
 
-  // Время с шагом 30 минут, рабочие часы 9:00–20:00
-  for (let h = 9; h <= 20; h++) {
+  // Время с шагом 30 минут, рабочие часы 10:00–20:00
+  for (let h = 10; h <= 20; h++) {
     ["00", "30"].forEach((m) => {
       if (h === 20 && m === "30") return;
       const o = document.createElement("option");

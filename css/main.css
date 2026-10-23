@@ -298,6 +298,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .gis__text h3 { font-size: 22px; margin-bottom: 6px; }
 .gis__text p { color: var(--muted); }
 .gis__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.stars { color: #f5b301; letter-spacing: 2px; white-space: nowrap; }
+.reviews { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; max-width: 980px; margin: 28px auto 0; }
+.review { padding: 22px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+.review__head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.review__head > div { flex: 1; min-width: 0; }
+.review__head b { display: block; }
+.review__head small { color: var(--muted); font-size: 13px; }
+.review__ava { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #19aa1e; color: #fff; font-weight: 700; }
+.ba__photo { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---------- FAQ ---------- */
 .faq { display: flex; flex-direction: column; gap: 12px; }
