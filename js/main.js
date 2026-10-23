@@ -486,28 +486,6 @@
     });
   });
 
-  /* ---------- Скриншоты отзывов из 2ГИС ---------- */
-  // Скриншоты кладутся в images/reviews/ под именами 1.jpg, 2.jpg … 8.jpg.
-  // Показываются только те, что реально есть в папке.
-  const shotsWrap = $("#reviewShots");
-  if (shotsWrap) {
-    for (let n = 1; n <= 8; n++) {
-      const img = new Image();
-      img.alt = `Отзыв клиента в 2ГИС №${n}`;
-      img.onload = () => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "shot";
-        btn.style.order = n;
-        btn.appendChild(img);
-        btn.addEventListener("click", () => openModal(`<img class="shot__full" src="${img.src}" alt="${img.alt}" />`));
-        shotsWrap.appendChild(btn);
-        shotsWrap.hidden = false;
-      };
-      img.src = `images/reviews/${n}.jpg`;
-    }
-  }
-
   /* ---------- 8. Форма записи ---------- */
   const form = $("#bookingForm");
   const phone = $("#fPhone");
@@ -544,8 +522,8 @@
   dateInput.min = toISO(today);
   dateInput.max = toISO(new Date(today.getTime() + 60 * 864e5));
 
-  // Время с шагом 30 минут, рабочие часы 9:00–20:00
-  for (let h = 9; h <= 20; h++) {
+  // Время с шагом 30 минут, рабочие часы 10:00–20:00
+  for (let h = 10; h <= 20; h++) {
     ["00", "30"].forEach((m) => {
       if (h === 20 && m === "30") return;
       const o = document.createElement("option");
