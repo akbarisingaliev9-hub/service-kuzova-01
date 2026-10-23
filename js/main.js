@@ -628,7 +628,7 @@
   });
 
   // Открывает чат WhatsApp с готовым текстом сообщения
-  const WA_NUMBER = "77785663630";
+  const WA_NUMBER = "77789760638";
   function openWhatsApp(text) {
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     // Открываем через обычную ссылку: так браузеры не блокируют переход
